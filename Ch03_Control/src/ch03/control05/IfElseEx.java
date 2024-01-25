@@ -1,35 +1,25 @@
 package ch03.control05;
 
-import java.util.Scanner;
-
 public class IfElseEx {
 	public static void main(String[] args) {
-
-		System.out.println("1. 봄");
-		System.out.println("2. 여름");
-		System.out.println("3. 가을");
-		System.out.println("4. 겨울");
-		System.out.print("선택 >> ");
+		char grade = 'B';
 		
-		Scanner sc = new Scanner(System.in);
-		
-		String sel = sc.nextLine();
-		
-		switch(sel) {
-		case "봄":
-			System.out.println("새싹이 자라난다");
-			break;
-		case "여름":
-			System.out.println("산과 바다로 가자");
-			break;
-		case "가을":
-			System.out.println("책을 읽자");
-			break;
-		case "겨울":
-			System.out.println("스키장에 간다");
-			break;
+		switch(grade) {
+		case 'A', 'a' -> {
+			System.out.println("우수 회원입니다.");
+		}
+		case 'B', 'b' -> {
+			System.out.println("일반 회원입니다.");
+		}
+		default -> {
+			System.out.println("손님입니다.");
+		}
 		}
 		
-		sc.close();
+		switch(grade) {
+		case 'A', 'a' -> System.out.println("우수 회원입니다.");
+		case 'B', 'b' -> System.out.println("일반 회원입니다.");
+		default -> System.out.println("손님입니다.");
+		}
 	}
 }
