@@ -16,19 +16,18 @@ public class IfElseEx {
 		
 		int sel = sc.nextInt();
 		
-		if (sel == 1) {
+		if (sel == 1) 
 			System.out.println("짜장면이 나왔습니다.");
-		} else if (sel == 2) {
+		 else if (sel == 2) 
 			System.out.println("짬뽕이 나왔습니다.");
-		} else if (sel == 3) {
+		 else if (sel == 3) 
 			System.out.println("탕수육이 나왔습니다.");
-		} else if (sel == 4) {
+		 else if (sel == 4) 
 			System.out.println("유산슬이 나왔습니다.");
-		} else if (sel == 5) {
+		 else if (sel == 5) 
 			System.out.println("유린기가 나왔습니다.");
-		} else {
+		 else 
 			System.out.println("해당 메뉴 번호가 없습니다.");
-		}
 		
 		sc.close();
 	}
