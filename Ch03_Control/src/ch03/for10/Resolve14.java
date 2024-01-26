@@ -13,7 +13,7 @@ public class Resolve14 {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("수를 입력하세요. >> ");
+		System.out.println("구구단을 출력하고 싶은 단의 숫자를 입력하세요. >> ");
 		
 		int num = sc.nextInt();
 		

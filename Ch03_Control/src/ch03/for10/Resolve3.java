@@ -9,7 +9,7 @@ public class Resolve3 {
         Scanner sc = new Scanner(System.in);
 
         // 3개의 정수 입력받기
-        System.out.print("첫 번째 변의 길이를 입력하세요 : ");
+        System.out.print("삼각형을 만들기 위한\n첫 번째 변의 길이를 입력하세요 : ");
         int side1 = sc.nextInt();
 
         System.out.print("두 번째 변의 길이를 입력하세요 : ");

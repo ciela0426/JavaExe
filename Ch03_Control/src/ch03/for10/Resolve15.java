@@ -10,18 +10,18 @@ public class Resolve15 {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		
+
 		int result = 0;
 		int num;
-		
+
 		do {
-			System.out.println("수를 입력하세요.\n0을 입력하면 합을 출력합니다. >>");
+			System.out.println("정수 입력 (0입력 시 합 출력) : ");
 			num = sc.nextInt();
 			result += num;
 		} while (num != 0);
-		
+
 		System.out.println("수의 합계는 " + result + "입니다.");
-		
+
 		sc.close();
 	}
 }

@@ -14,7 +14,7 @@ public class Resolve12 {
 		
 		if (num > 0) {
 			for (int i = 1; i <= num; i++) {
-				System.out.println("감사합니다.");
+				System.out.println(i + " 감사합니다.");
 			}
 		}
 				
