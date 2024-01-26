@@ -3,6 +3,12 @@ package ch05.array07;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/*
+ * 배열의 정렬
+ * Arrays.sort(scores);				데이터가 적을 때
+ * Arrays.parallelSort(scores);		데이터가 많을 때
+ * 둘 다 오름차순 정렬이 됨
+ */
 public class ArrayEx {
 	public static void main(String[] args) {
 		int[] scores = {98,12,52, 93, 33, 54, 21};
