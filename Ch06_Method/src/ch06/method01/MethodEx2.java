@@ -1,52 +1,25 @@
 package ch06.method01;
 
-import java.util.Scanner;
-
 public class MethodEx2 {
 	
-	// main method 내의 계산하는 부분을 옮긴다.
-	public static void calcArith(int num0, int num1, String op) {
-		int result = 0;
-
-		switch (op) {
-		case "+":
-			result = num0 + num1;
-			break;
-		case "-":
-			result = num0 - num1;
-			break;
-		case "*":
-			result = num0 * num1;
-			break;
-		case "/":
-			result = num0 / num1;
-			break;
-		case "%":
-			result = num0 % num1;
-			break;
-		default:
-			System.out.println("연산이 불가능합니다.");
-			break;
-		}
-
-		System.out.println("결과값은 " + result + "입니다.");
+	// num0과 num1은 add 함수의 지역 변수이다.
+	public static int add(int num0, int num1) {
+		int result = num0 + num1;
+		return result;
 	}
 	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 
-		// 1) 처리하기 전에 입력받는 부분
-		System.out.println("1번째 정수 입력 >> ");
-		int num0 = sc.nextInt();
-		System.out.println("2번째 정수 입력 >> ");
-		int num1 = sc.nextInt();
-		System.out.println("연산자 입력 + - * / %");
-		String op = sc.next();
+		int result = add(11, 5);
+		System.out.println("결과값은 " + result);
 		
-		// 2) 계산하는 부분
-		calcArith(num0, num1, op);
-
-		// 결과값 출력
-		sc.close();
+		// main 함수의 지역변수로 Stack에 num0과 num1dl 초기화되어 생성된다.
+		int num0 = 10, num1 = 5;
+		int result1 = add(num0, num1);
+		System.out.println("결과값은 " + result1);
+		
+		int a = 3, b = 7;
+		int result2 = add(a, b);
+		System.out.println("결과값은 " + result2);
 	}
 }
