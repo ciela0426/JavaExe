@@ -6,22 +6,17 @@ package ch05.array04;
 public class Resolve04 {
 	public static void main(String[] args) {
 		int[] num = new int[10];
-		
-		
+
 		for (int i = 0; i < num.length; i++) {
-			if (i % 3 == 0) {
-				num[i] += i + 1; 
+			num[i] += 3 * i;
+		}
+
+		for (int i = num.length - 1; i >= 0; i--) {
+			if (i == 1) {
+				System.out.print(num[i]);
+			} else {
+				System.out.print(num[i] + ", ");
 			}
 		}
-		
-		System.out.println(num[2]);
-
-//		for (int i = num.length; i > 0; i--) {
-//			if (i == 1) {
-//				System.out.print(num[i - 1]);
-//			} else {
-//				System.out.print(num[i - 1] + ", ");
-//			}
-//		}
 	}
 }

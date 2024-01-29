@@ -11,6 +11,9 @@ import java.util.Scanner;
 // ---------------------------------
 // 선택> 1
 // 예금액> 10000
+
+// 책에 적힌 것처럼 nextInt()대신 nextLine()을 이용할 경우 String으로 인식을 하기에 
+// Integer.parseInt()를 사용하여 number로 바꿔주어야 한다. (책 64page 참고)
 public class Resolve3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

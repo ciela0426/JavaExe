@@ -14,16 +14,15 @@ public class Resolve06 {
 		
 		for (int i = 0; i < 5; i++) {
 			System.out.printf("%s번째 학생의 이름을 입력하세요. >> ", i + 1);
-			names[i] = sc.next();
+			names[i] = sc.nextLine();
 
-			System.out.printf("%s번째 학생의 점수를 입력하세요. >> ", i + 1);
-			scores[i] = sc.nextInt();	
+			System.out.printf("%s번째 학생의 점수를 입력하세요. (0~100) >> ", i + 1);
+			String srtScore = sc.nextLine();
+			int score = Integer.parseInt(srtScore);
+			scores[i] = score;	
 		}
 		
-		
-		String result = "";
-		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < names.length; i++) {
 			String grade = "";
 			if (scores[i] >= 90) {
 				grade = "A";
@@ -37,7 +36,8 @@ public class Resolve06 {
 				grade = "F";
 			}
 			
-			System.out.print(names[i] + "의 학점은 " + grade + "입니다.\n");
+//			System.out.print(names[i] + "의 학점은 " + grade + "입니다.\n");
+			System.out.printf("%s의 학점은 %s입니다.\n", names[i], grade);
 		}
 		
 		sc.close();
