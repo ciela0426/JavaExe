@@ -6,20 +6,12 @@ import java.util.Scanner;
 //작은 값을 반환하는 메서드를 작성하고 사용하세요
 public class Resolve1 {
 	
-	public static int big(int num0, int num1) {
-		if (num0 > num1) {
-			return num0;
-		} else {
-			return num1;
-		}
+	public static int big(int a, int b) {
+		return (a > b) ? a : b;
 	}
 	
-	public static int small(int num0, int num1) {
-		if (num0 > num1) {
-			return num1;
-		} else {
-			return num0;
-		}
+	public static int small(int a, int b) {
+		return (a > b) ? b : a;
 	}
 	
 	public static void main(String[] args) {

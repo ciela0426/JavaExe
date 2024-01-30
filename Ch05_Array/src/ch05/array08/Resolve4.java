@@ -10,13 +10,20 @@ import java.util.Arrays;
  */
 public class Resolve4 {
 	public static void main(String[] args) {
-		int[] numArr = {23,5,63,17,73};
+//		int[] numArr = {23,5,63,17,73};
+		int[] numArr = new int[10000];
+		
+		// 난수로 0~100000사이의 임의의 정수를 배열에 저장
+		for (int i = 0; i < numArr.length; i++) {
+			double dVal = Math.random(); // 0~1 사이 실수값
+			numArr[i] = (int)(dVal*100000); // 정수 강제 변환 (int)
+		}
 		
 		// bubble 정렬
 		// 가장 단순하고 직관적인 정렬 알고리즘
 		// 간단한 코드가 필요할 때에나 복잡도가 중요하지 않은 문제에서 사용
 		// 인접한 두 원소를 비교(Compare)해 조건에 맞지 않다면 두 원소를 바꿔줌 (Swap)
-		/*
+		
 		for (int i = 0; i < numArr.length - 1; i++) {
 			boolean swap = false; // 정렬이 완료되었는데도 index때문에 돌아가는 것을 방지
 			for (int j = 0; j < numArr.length - 1; j++) { // 맨 마지막 index 때문에 필요함
@@ -32,7 +39,7 @@ public class Resolve4 {
 				break;
 			}
 		}
-		*/
+		
 		
 		// 선택 정렬 ( bubble 정렬보다 아주 조금 더 빠름 )
 		// 배열에서 최솟값을 선택해 정렬되지 않은 배열의 첫번째 인덱스에 넣어주는 알고리즘
@@ -52,7 +59,6 @@ public class Resolve4 {
 			numArr[minIdx] = temp;
 		}
 		*/
-		
 		
 		// 삽입 정렬 ( 선택 정렬과 유사하지만 조금 더 효율적임 )
 		/*

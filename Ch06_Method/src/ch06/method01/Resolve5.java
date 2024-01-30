@@ -11,10 +11,13 @@ package ch06.method01;
 public class Resolve5 {
 	public static void star(int num) {
 		String stars = "";
-		for(int i = 0; i < num; i++) {
-			stars += "*";
-			System.out.println(stars);
+		for(int i = 1; i <= num; i++) {
+			for (int j = 1; j <=i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
 		}
+		System.out.println();
 	}
 	public static void main(String[] args) {
 		star(5);

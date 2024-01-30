@@ -6,9 +6,8 @@ package ch06.method01;
 public class Resolve4 {
 	
 	public static void gugudan(int num) {
-		int cal = 0;
-		for (int i = 1; i <= 9; i++) {
-			cal = num * i;
+		for (int i = 1; i <= num; i++) {
+			int cal = num * i;
 			System.out.println(num + " X " + i + " = " + cal);
 		}
 	}
