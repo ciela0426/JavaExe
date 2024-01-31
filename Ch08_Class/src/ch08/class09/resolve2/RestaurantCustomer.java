@@ -10,9 +10,8 @@ public class RestaurantCustomer {
 	}
 	public void orderFood() {
 	}
+	
 	public void showBuyResult() {
-//		System.out.println("*** 방문객의 현재 상황 ***");
 		System.out.println("손님 잔액 : " + money);
-//		System.out.println("배의 개수 : " + numOfPears);
 	}
 }
