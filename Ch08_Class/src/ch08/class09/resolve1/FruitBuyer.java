@@ -1,17 +1,20 @@
-package ch08.class08;
+package ch08.class09.resolve1;
 
 public class FruitBuyer {
-	private int money;
-	private int numOfApples;
+	private int money;				// 잔액
+	private int numOfApples;		// 가진 사과 개수
 	
 	public FruitBuyer(int money) {
 		this.money = money;
 		this.numOfApples = 0;
 	}
-	public void buyApple(FruitSeller seller, int money) {
-		this.numOfApples += seller.saleApple(money);
+	
+	// 사과 개수, 잔액
+	public void buyApple(int numOfApples, int money) {
+		this.numOfApples += numOfApples;
 		this.money -= money;
 	}
+	
 	public void showBuyResult() {
 		System.out.println("*** 과일 구매자의 현재 상황 ***");
 		System.out.println("현재 잔액 : " + money);
