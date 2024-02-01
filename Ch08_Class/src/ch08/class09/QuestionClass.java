@@ -2,6 +2,14 @@ package ch08.class09;
 
 import java.util.Scanner;
 
+import ch08.class09.answer2.*;
+import ch08.class09.answer3.*;
+import ch08.class09.answer4.*;
+import ch08.class09.answer5.*;
+import ch08.class09.resolve1.*;
+import ch08.class09.resolve2.*;
+import ch08.class09.resolve3.*;
+//import ch08.class09.resolve4.*;
 
 /*
 1.FruitMain클래스에		
@@ -79,6 +87,7 @@ public class QuestionClass {
 			+ "   int square() : 사각형 넓이 리턴\r\n"
 			+ "   void show() : 좌표와 넓이 등 직사각형 정보의 화면 출력\r\n"
 			+ "   boolean equals(Rectangle r) : 인자로 전달된 객체 r과 현 객체가 동일한 좌표의 직사각형이면 true 리턴\r\n"
+			+ "6. Program End~\r\n"
 			+ "";
 	
 	System.out.println("\n\n\n------------------------------------");
@@ -100,27 +109,85 @@ public static int getSelectMenu(Scanner sc) {
 
 // 1번 문제에 대한 풀이
 public static void answer1(Scanner sc) {
+	FruitSeller seller = new FruitSeller(20); // 사과 20 개
+	FruitBuyer buyer = new FruitBuyer(10000); // 구매자 잔액 10000원
+	
+	seller.showSaleResult();
+	buyer.showBuyResult();
 
+	// 판매자가 구매자로부터 2000원의 금액을 받아 사과를 판매했을 떄
+	seller.saleApple(buyer, 2000);
+	
+	seller.showSaleResult();
+	buyer.showBuyResult();
 }
 
 // 2번 문제에 대한 풀이
 public static void answer2(Scanner sc) {
-
+	ChineseRestaurant rest = new ChineseRestaurant(sc, "천안문", new String[]{"짜장면", "짬뽕", "탕수육", "라조기", "유산슬", "유린기", "우동"}) ;
+	
+	rest.viewMenu();
+	rest.selectFood();
+	rest.deliveryFood();
 }
 
 // 3번 문제에 대한 풀이
 public static void answer3(Scanner sc) {
-
+	/*
+	MartInventory inventory = new MartInventory(10); // 재고 10개
+	MartBuyer buyer = new MartBuyer(5000); // 구매자 잔액 5000
+	
+	// 구매자가 5000원을 지불하고 배를 삼
+	buyer.buyPear(inventory, 5000);
+	
+	inventory.showSaleResult();
+	buyer.showBuyResult();
+	*/
+	PearSeller seller = new PearSeller(20);
+	PearBuyer buyer = new PearBuyer(10000);
+	
+	seller.showSaleResult();
+	buyer.showBuyResult();
+	
+	buyer.buyPear(seller, 5000);
+	
+	seller.showSaleResult();
+	buyer.showBuyResult();
 }
 
 // 4번 문제에 대한 풀이
 public static void answer4(Scanner sc) {
-
+	Song song = new Song();
+	
+	song.setSongInfo("Dancing Queen", "ABBA", "Arrival", 
+			"Benny Andersson, Björn Ulvaeus, Stig Anderson", 1976, 3);
+	
+	song.show();
 }
 
 // 5번 문제에 대한 풀이
 public static void answer5(Scanner sc) {
+	Rectangle rc0 = new Rectangle();
+	rc0.set(10, 10, 30, 30);
 
+	Rectangle rc1 = new Rectangle();
+	rc1.set(10, 10, 30, 30);
+
+	Rectangle rc2 = new Rectangle();
+	rc2.set(100, 100, 300, 300);
+	
+	rc0.show();
+	rc1.show();
+	rc2.show();
+	
+	if (rc0.equals(rc1))
+		System.out.println("rc0과 rc1은 같습니다.");
+	else 
+		System.out.println("rc0과 rc1은 다릅니다.");
+	if (rc0.equals(rc2))
+		System.out.println("rc0과 rc2는 같습니다.");
+	else 
+		System.out.println("rc0과 rc2은 다릅니다.");
 }
 
 // 전체의 시작인 main 메서드
