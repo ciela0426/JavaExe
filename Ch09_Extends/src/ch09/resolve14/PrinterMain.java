@@ -1,5 +1,8 @@
 package ch09.resolve14;
 
+import ch09.resolve14.printerType.InkjetPrinter;
+import ch09.resolve14.printerType.LaserPrinter;
+
 /*
  * 1. 다음 상속구조를 설계하세요
 모든 프린터는 모델명, 제조사, 인터페이스 종류(USB, paraller port), 인쇄매수,
@@ -17,10 +20,19 @@ print()메서드는 각 프린터 타입에 맞게 구현한다
 
 잉크젯프린터             레이저프린터
  */
+
 public class PrinterMain {
-	public static void main(String[] args) {
-		InkjetPrinter inkjet = new InkjetPrinter();
-//		Printer printer = new Printer();
-//		printer.run();
-	}
+    public static void main(String[] args) {
+        // Example usage
+        InkjetPrinter inkjetPrinter = new InkjetPrinter("Epson123", "Epson", "USB", 0, 10, 10);
+        LaserPrinter laserPrinter = new LaserPrinter("HP456", "HP", "Parallel Port", 0, 10 , 10);
+
+        System.out.println("------- 잉크젯 프린터 인쇄 -------");
+        inkjetPrinter.print();
+        inkjetPrinter.print();
+
+        System.out.println("------- 레이저 프린터 인쇄 -------");
+        laserPrinter.print();
+        laserPrinter.print();
+    }
 }
