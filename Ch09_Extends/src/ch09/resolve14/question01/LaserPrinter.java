@@ -2,20 +2,21 @@ package ch09.resolve14.question01;
 
 public class LaserPrinter extends Printer {
 	
-	protected int tonerRemainders;
+	protected double tonerRemainders;
 
 	public LaserPrinter(String modelName, String manufacturer, P_INTERFACE pInterface, int printCount,
-			int paperRemains, int tonerRemainders) {
+			int paperRemains, double tonerRemainders) {
 		super(modelName, manufacturer, pInterface, printCount, paperRemains);
 		this.tonerRemainders = tonerRemainders;
 	}
 
 	@Override
 	public void print() {
-		// TODO Auto-generated method stub
 		super.print();					// 종이 1장 사용
-		System.out.println("토너가 잘 분사되어 출력된다.");
-		System.out.println("품질이 양호하다.");
+		this.printCount++;
+		this.tonerRemainders *= 0.99;
+		System.out.println("빠르게 출력된다.");
+		System.out.println("품질이 매우 양호하다.");
 	}
 
 	@Override

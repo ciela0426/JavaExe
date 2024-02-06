@@ -18,4 +18,12 @@ public abstract class Printer {
     public void print() {
     	this.paperRemains--;
     }
+
+	@Override
+	public String toString() {
+		return "Printer [modelName=" + modelName + ", manufacturer=" + manufacturer + ", pInterface=" + pInterface
+				+ ", printCount=" + printCount + ", paperRemains=" + paperRemains + "]";
+	}
+    
+    
 }
