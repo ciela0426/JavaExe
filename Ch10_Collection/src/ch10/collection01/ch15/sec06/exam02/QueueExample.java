@@ -6,7 +6,7 @@ import java.util.Queue;
 public class QueueExample {
 	public static void main(String[] args) {
 		// Queue 컬렉션 생성
-		Queue<Message> messageQueue = new LinkedList<>();
+		Queue<Message> messageQueue = new LinkedList<>(); // LinkedList도 Queue를 상속받음
 		
 		// 메시지 넣기
 		messageQueue.offer(new Message("sendMail", "홍길동"));
