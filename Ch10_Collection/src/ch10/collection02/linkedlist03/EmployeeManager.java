@@ -1,5 +1,6 @@
-package ch10.collection02.linkedlist01;
+package ch10.collection02.linkedlist03;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ public class EmployeeManager {
 
 	private Scanner sc = new Scanner(System.in);
 
-	private LinkedList<Employee> employeeList = new LinkedList<>();
+	LinkedList<Employee> employeeList = new LinkedList<>();
 
 	private int viewMenu() {
 		System.out.println("[ 사원 선택 ]");
@@ -18,7 +19,9 @@ public class EmployeeManager {
 		System.out.println("5. 정규직 보기");
 		System.out.println("6. 임시직 보기");
 		System.out.println("7. 일용직 보기");
-		System.out.println("8. 종료");
+		System.out.println("8. 직원 수정");
+		System.out.println("9. 직원 삭제");
+		System.out.println("10. 종료");
 		System.out.println("번호 입력 >> ");
 		int sel = sc.nextInt();
 		return sel;
@@ -102,6 +105,60 @@ public class EmployeeManager {
 		}
 	}
 
+    private Employee searchEmployeeByNumber(String empno) {
+        for (Employee emp : employeeList) {
+            if (emp.getEmpno().equals(empno)) {
+                return emp;
+            }
+        }
+        return null; // 해당 번호의 직원이 없을 경우 null 반환
+    }
+    
+ // 직원 번호로 직원 정보 편집
+    private void editEmployeeByNumber(String empno) {
+        Employee emp = searchEmployeeByNumber(empno);
+        if (emp != null) {
+            // 검색된 직원이 있을 경우 정보 편집
+            System.out.println("새로운 정보를 입력하시오 (사번 : " + empno + ") :");
+            if (emp instanceof RegularEmployee) {
+                RegularEmployee regEmp = (RegularEmployee) emp;
+                System.out.println("수정할 연봉 >> ");
+                regEmp.setYearSalary(sc.nextInt());
+                System.out.println("수정할 보너스 >> ");
+                regEmp.setBonus(sc.nextInt());
+            } else if (emp instanceof TempEmployee) {
+                TempEmployee tempEmp = (TempEmployee) emp;
+                System.out.println("수정할 연봉 >> ");
+                tempEmp.setYearSalary(sc.nextInt());
+                System.out.println("수정할 계약기간 >> ");
+                tempEmp.setHireYear(sc.nextInt());
+            } else if (emp instanceof PartTimeEmployee) {
+                PartTimeEmployee partEmp = (PartTimeEmployee) emp;
+                System.out.println("수정할 일급 >> ");
+                partEmp.setDailyPay(sc.nextInt());
+                System.out.println("수정한 일한 일수 >> ");
+                partEmp.setWorkDay(sc.nextInt());
+            }
+            System.out.println("직원 정보가 성공적으로 업데이트 되었습니다.");
+        } else {
+            System.out.println("직원을 찾을 수 없습니다.");
+        }
+    }
+
+    // 직원 번호로 직원 삭제
+    private void deleteEmployeeByNumber(String empno) {
+        Iterator<Employee> iterator = employeeList.iterator();
+        while (iterator.hasNext()) {
+            Employee emp = iterator.next();
+            if (emp.getEmpno().equals(empno)) {
+                iterator.remove();
+                System.out.println("직원 " + empno + "이 삭제되었습니다.");
+                return;
+            }
+        }
+        System.out.println("직원을 찾을 수 없습니다.");
+    }
+
 	public void run() {
 		boolean isRun = true;
 
@@ -129,6 +186,14 @@ public class EmployeeManager {
 			case EmpMenu.PART_INFO: // 일용직 보기
 				viewPartEmployeeInfo();
 				break;
+            case EmpMenu.EDIT_EMP:
+                System.out.println("수정할 직원의 사번을 입력하시오 >> ");
+                editEmployeeByNumber(sc.next());
+                break;
+            case EmpMenu.DELETE_EMP:
+                System.out.println("삭제할 직원의 사번을 입력하시오 >> ");
+                deleteEmployeeByNumber(sc.next());
+                break;
 			case EmpMenu.EXIT: // 프로그램 종료 -> isRun = false
 				isRun = false;
 				break;

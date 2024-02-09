@@ -1,13 +1,18 @@
-package ch10.collection02.linkedlist01;
+package ch10.collection02.hashmap04;
 
-import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
-public class EmployeeManager {
+import ch10.collection02.linkedlist01.Employee;
+import ch10.collection02.linkedlist01.PartTimeEmployee;
+import ch10.collection02.linkedlist01.RegularEmployee;
+import ch10.collection02.linkedlist01.TempEmployee;
 
+public class EmployeeManager {
 	private Scanner sc = new Scanner(System.in);
 
-	private LinkedList<Employee> employeeList = new LinkedList<>();
+	Map<String, Employee> employeeMap = new HashMap<>();
 
 	private int viewMenu() {
 		System.out.println("[ 사원 선택 ]");
@@ -33,10 +38,9 @@ public class EmployeeManager {
 		int yearSalary = sc.nextInt();
 		System.out.println("보너스 >> ");
 		int bonus = sc.nextInt();
-		
 		RegularEmployee emp = new RegularEmployee(empno, name, yearSalary, bonus);
 		
-		employeeList.add(emp);
+		employeeMap.put(empno, emp);
 		return emp;
 	}
 
@@ -49,10 +53,9 @@ public class EmployeeManager {
 		int yearSalary = sc.nextInt();
 		System.out.println("계약 기간 >> ");
 		int hireYear = sc.nextInt();
-		
 		TempEmployee emp = new TempEmployee(empno, name, yearSalary, hireYear);
-		
-		employeeList.add(emp);
+
+		employeeMap.put(empno, emp);
 		return emp;
 	}
 
@@ -65,41 +68,37 @@ public class EmployeeManager {
 		int dailyPay = sc.nextInt();
 		System.out.println("일한 일수 >> ");
 		int workDay = sc.nextInt();
-		
 		PartTimeEmployee emp = new PartTimeEmployee(empno, name, dailyPay, workDay);
 		
-		employeeList.add(emp);
+		employeeMap.put(empno, emp);
 		return emp;
 	}
 
 	private void viewAllEmployeeInfo() {
-		for (int i = 0; i < employeeList.size(); i++) {
-	        employeeList.get(i).showEmployeeInfo();
-		}
+	    for (Employee emp : employeeMap.values()) {
+	        emp.showEmployeeInfo();
+	    }
 	}
 
 	private void viewRegEmployeeInfo() {
-	    for (int i = 0; i < employeeList.size(); i++) {
-	        Employee emp = employeeList.get(i);
+	    for (Employee emp : employeeMap.values()) {
 	        if (emp instanceof RegularEmployee)
 	            emp.showEmployeeInfo();
 	    }
 	}
 
 	private void viewTempEmployeeInfo() {
-		for(int i = 0; i < employeeList.size() ;i++) {
-			Employee emp = employeeList.get(i);
-			if(emp instanceof TempEmployee)
-				emp.showEmployeeInfo();
-		}
+	    for (Employee emp : employeeMap.values()) {
+	        if (emp instanceof TempEmployee)
+	            emp.showEmployeeInfo();
+	    }
 	}
 
 	private void viewPartEmployeeInfo() {
-		for(int i = 0; i < employeeList.size(); i++) {
-			Employee emp = employeeList.get(i);
-			if(emp instanceof PartTimeEmployee)
-				emp.showEmployeeInfo();
-		}
+	    for (Employee emp : employeeMap.values()) {
+	        if (emp instanceof PartTimeEmployee)
+	            emp.showEmployeeInfo();
+	    }
 	}
 
 	public void run() {

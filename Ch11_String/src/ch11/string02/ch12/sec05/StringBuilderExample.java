@@ -9,7 +9,17 @@ class MyStringBuilder {
 	public MyStringBuilder append(String str) {
 		char[] chArr = str.toCharArray();
 		for (char ch : chArr)
-			chList.add(ch);
+			/*
+			 * Boxing
+			 * 기본 타입 / 지역변수 ch는 스택에 존재
+			 * chList.add(ch); 이 구문이 처리될 때
+			 * char -> Charater 클래스로 변환된다
+			 * Character 클래스 내부에는 char를 보관하고 있다
+			 * ch값은 결국 객체로 변환되어 힙으로 이동한다.
+			 * 
+			 * 성능의 저하 현상
+			 */
+			chList.add(ch);				// char -> Charater 클래스로 변환
 
 		return this;
 	}
@@ -25,6 +35,11 @@ class MyStringBuilder {
 	@Override
 	public String toString() {
 		String str = "";
+		/*
+		 * UnBoxing 현상 발생
+		 * chList 내부에서 Character 클래스 객체로 heap 공간에 보관하다가 
+		 * 지역변수 char ch에 대입할 때 다시 stack에 존재하는 ch로 값을 전달한다.
+		 */
 		for (char ch : chList)
 			str += ch;
 		return str;
