@@ -27,6 +27,7 @@ public class CallableSubmitExample {
 			});
 			
 			try {
+				// thread pool 내의 thread가 call()을 
 				int result = future.get();
 				System.out.println("\t리턴값 : " + result);
 			} catch (Exception e) {

@@ -8,9 +8,9 @@ public class InterruptExample {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			
 		}
 		
+		// thread의 run() method에 InterruptException을 throw한다.
 		thread.interrupt();
 	}
 }

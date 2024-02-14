@@ -11,7 +11,6 @@ class OwnName {
 	public void setOwnName(String ownName) {
 		this.ownName = ownName;
 	}
-	
 }
 
 /*
@@ -19,35 +18,44 @@ class OwnName {
  * 이 때는 Runnable을 상속받는다.
  */
 class ShowOwnNameThread extends OwnName implements Runnable {
+	
+	public ShowOwnNameThread(String ownName) {
+		this.setOwnName(ownName);
+	}
 
-	@Override				// 사람이 봤을 떄 부모의 인터페이스가 물려준 인터페이스네 생각가능
+	@Override
 	public void run() {
-		for (int i = 0; i < 100; i++) {
-			System.out.println("안녕하세요 : " + this.getName() + "입니다.");
+		for(int i=0;i<100;i++) {
+			System.out.println(i + " 안녕하세요 : " + this.getOwnName() + "입니다");
 			
 			try {
-				sleep(100);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(this.getName() +"스레드 종료");
+		System.out.println(this.getOwnName() + "스레드 종료");
 	}
 	
 }
 
 public class ImplementsRunnable {
 	public static void main(String[] args) {
-		// thread 2개가 vm에 할당되어 준비하고 있는 상태
-		ShowOwnNameThread t1 = new ShowOwnNameThread();
-		ShowOwnNameThread t2 = new ShowOwnNameThread();
+		// Thread 2개가 vm에 할당되어 준비하고 있는 상태
+		ShowOwnNameThread s1 = new ShowOwnNameThread("철수");
+		ShowOwnNameThread s2 = new ShowOwnNameThread("영희");
+		ShowOwnNameThread s3 = new ShowOwnNameThread("은하");
+		ShowOwnNameThread s4 = new ShowOwnNameThread("철희");
 		
-		// thread를 동작(run()을 호출)
+		// 스레드를 동작(run()을 호출)
 		System.out.println("t1 스레드 객체 동작");
-		t1.start();
+		Thread t1 = new Thread(s1);t1.start();		
 		System.out.println("t2 스레드 객체 동작");
-		t2.start();
-		
+		Thread t2 = new Thread(s2);t2.start();	
+		System.out.println("t3 스레드 객체 동작");
+		Thread t3 = new Thread(s3);t3.start();	
+		System.out.println("t4 스레드 객체 동작");
+		Thread t4 = new Thread(s4);t4.start();	
 		System.out.println("main 스레드 종료");
 	}
 }
