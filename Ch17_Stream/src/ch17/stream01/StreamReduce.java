@@ -18,6 +18,8 @@ public class StreamReduce {
 		 * ...
 		 * 
 		 * 앞의 연산의 결과가 다시 a로 입력되고 새로운 배열의 인자가 b로 입력되어 계속 반복 연산
+		 * 
+		 * reduce 로직은 직접 구성한다.
 		 */
 		int sum = Arrays.stream(numArr).reduce(0, (a, b) -> a + b);
 		System.out.println("sum = " + sum);
