@@ -21,7 +21,7 @@ public class EchoClient {
 			// IP, Port로 서버 프로그램과 연결 시도 후 성공하면(서버에서는 accept()가 리턴)
 			// 스트림 생성
 			// 그리고 연결된 socket객체 리
-			Socket socket = new Socket("192.168.0.26", PORT);
+			Socket socket = new Socket("192.168.0.50", PORT);
 			BufferedReader keyboard = new BufferedReader(
 					new InputStreamReader(System.in));
 			OutputStream out = socket.getOutputStream(); //	서버로 전송 stream
@@ -32,6 +32,7 @@ public class EchoClient {
 			
 			String line;
 			while(true) {
+				System.out.println("입력 >> ");
 				line = keyboard.readLine();
 				if(line.equals("quit")) break;
 				pw.println(line);
